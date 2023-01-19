@@ -1,3 +1,8 @@
+# Base Script found here: https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html
+
+# Added a bounding box that tracks blue objects in the video feed.
+
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
