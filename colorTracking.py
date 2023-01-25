@@ -19,7 +19,7 @@ while(True):
     higherBlue = np.array([130, 255, 255])
     mask = cv2.inRange(hsv, lowerBlue, higherBlue)
 
-    th = cv2.adaptiveThreshold(mask,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,27,2)
+    th = cv2.adaptiveThreshold(mask,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,3,2)
 
     res = cv2.bitwise_and(frame, frame, mask = mask)
 
