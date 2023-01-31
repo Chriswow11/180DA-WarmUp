@@ -54,9 +54,9 @@ player_move = ""
 ai_move = ""
 result = ""
 chance = rand.randint(1,3)
-player_wins = 0
-ai_wins = 0
-stat_incremented = False
+#player_wins = 0
+#ai_wins = 0
+#stat_incremented = False
 
 while running:
 	for event in pygame.event.get():
@@ -137,71 +137,71 @@ while running:
 	if (player_move == "rock" and ai_move == "scissors"):
 		screen.blit(scissors.surf, arena_right)
 		result = "You Win"
-		player_wins = player_wins + 1
-		player_move = ""
-		ai_move = ""
+		#player_wins = player_wins + 1
+		#player_move = ""
+		#ai_move = ""
 	elif (player_move == "rock" and ai_move == "paper"):
 		screen.blit(paper.surf, arena_right)
 		result = "You Lose"
-		ai_wins = ai_wins + 1
-		player_move = ""
-		ai_move = ""
+		#ai_wins = ai_wins + 1
+		#player_move = ""
+		#ai_move = ""
 	elif (player_move == "rock" and ai_move == "rock"):
 		screen.blit(rock.surf, arena_right)
 		result = "Draw"
-		player_move = ""
-		ai_move = ""
+		#player_move = ""
+		#ai_move = ""
 
 	elif (player_move == "paper" and ai_move == "scissors"):
 		screen.blit(scissors.surf, arena_right)
 		result = "You Lose"
-		ai_wins = ai_wins + 1
-		player_move = ""
-		ai_move = ""
+		#ai_wins = ai_wins + 1
+		#player_move = ""
+		#ai_move = ""
 	elif (player_move == "paper" and ai_move == "paper"):
 		screen.blit(paper.surf, arena_right)
 		result = "Draw"
-		player_move = ""
-		ai_move = ""
+		#player_move = ""
+		#ai_move = ""
 	elif (player_move == "paper" and ai_move == "rock"):
 		screen.blit(rock.surf, arena_right)
 		result = "You Win"
-		player_wins = player_wins + 1
-		player_move = ""
-		ai_move = ""
+		#player_wins = player_wins + 1
+		#player_move = ""
+		#ai_move = ""
 
 	elif (player_move == "scissors" and ai_move == "scissors"):
 		screen.blit(scissors.surf, arena_right)
 		result = "Draw"
-		player_move = ""
-		ai_move = ""
+		#player_move = ""
+		#ai_move = ""
 	elif (player_move == "scissors" and ai_move == "paper"):
 		screen.blit(paper.surf, arena_right)
 		result = "You Win"
-		player_wins = player_wins + 1
-		player_move = ""
-		ai_move = ""
+		#player_wins = player_wins + 1
+		#player_move = ""
+		#ai_move = ""
 	elif (player_move == "scissors" and ai_move == "rock"):
 		screen.blit(rock.surf, arena_right)
 		result = "You Lose"
-		ai_wins = ai_wins + 1
-		player_move = ""
-		ai_move = ""
+		#ai_wins = ai_wins + 1
+		#player_move = ""
+		#ai_move = ""
 	else:
 		pass
 
 	result_text = font.render(result, True, (255,255,255))
 	result_text_center = ((SCREEN_WIDTH - result_text.get_width())/2, (SCREEN_HEIGHT - result_text.get_height() - 125)/2)
 
-	player_stats = font.render(str(player_wins), True, (255,255,255))
-	player_center = ((SCREEN_WIDTH - player_stats.get_width() - 460)/2, (SCREEN_HEIGHT - player_stats.get_height() - 125)/2)
+	#player_stats = font.render(str(player_wins), True, (255,255,255))
+	#player_center = ((SCREEN_WIDTH - player_stats.get_width() - 460)/2, (SCREEN_HEIGHT - player_stats.get_height() - 125)/2)
 
-	ai_stats = font.render(str(ai_wins), True, (255,255,255))
-	ai_center = ((SCREEN_WIDTH - ai_stats.get_width() + 480)/2, (SCREEN_HEIGHT - ai_stats.get_height() - 125)/2)
+	#ai_stats = font.render(str(ai_wins), True, (255,255,255))
+	#ai_center = ((SCREEN_WIDTH - ai_stats.get_width() + 480)/2, (SCREEN_HEIGHT - ai_stats.get_height() - 125)/2)
 
 	screen.blit(result_text, result_text_center)
-	screen.blit(player_stats, player_center)
-	screen.blit(ai_stats, ai_center)
+	#screen.blit(player_stats, player_center)
+	#screen.blit(ai_stats, ai_center)
 
 	pygame.display.flip()
 	clock.tick(30)
