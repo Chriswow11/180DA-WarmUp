@@ -1,4 +1,4 @@
-- Christian Ko
+Christian Ko
 
 ## What is MQTT?
 
