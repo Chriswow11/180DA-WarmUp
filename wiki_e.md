@@ -40,7 +40,7 @@ class AnimateExample(Scene):
 ```Python
 from manim import *
 
-class AnimateChainExample(Scene):
+class AnimateCombinedExample(Scene):
     def construct(self):
         circle = Circle()
         self.play(Create(circle))
@@ -51,6 +51,42 @@ class AnimateChainExample(Scene):
 Additionally, `Uncreate` can be used to animate destruction rather than a `FadeOut` transform. `Uncreate` is simply `Create`, but in reverse.
 
 
+### Grouping Objects
+
+MObjects can be grouped together in order to do things like animate dots on a graph moving together. 
+Groups can be formed with `VGroup`, and any MObjects that are passed within that functions will be added to the group defined. 
+
+
+```Python
+from manim import *
+
+class GroupExample(Scene):
+    def construct(self):
+        red_circle = Circle(color = RED)
+        green_circle = Circle(color = GREEN)
+        blue_circle = Circle(color = BLUE)
+        
+        red_circle.shift(LEFT)
+        blue_circle.shift(RIGHT)
+        
+        group1 = VGroup(red_circle, green_circle)
+        group2 = VGroup(green_circle, blue_circle)
+        self.add(group1, group2)
+        self.play(Create(red_circle))
+        self.play(Create(green_circle))
+        self.play(Create(blue_circle))
+        self.play((group1 + group2).animate.shift(LEFT).scale(2))
+        self.play(group2.animate.rotate(PI / 2))
+        self.play(Uncreate(red_circle))
+        self.play(Uncreate(green_circle))
+        self.play(Uncreate(blue_circle))
+```
+
+In this example, three RGB circles are made with two groups formed from them. First they are created, then they all move left and grow by a factor of 2 because both groups were specified to move in the code. Then the green and blue circles are rotated 90 degrees because only `group2` was specified to rotate.
+
+By utilizing groups, animating many MObjects will hopefully not be as daunting of a task.
+
+
 ### Displaying Text
 
 Displaying text is pretty straightforward:
@@ -58,7 +94,7 @@ Displaying text is pretty straightforward:
 ```Python
 from manim import *
 
-class MyScene(Scene):
+class TextExample(Scene):
     def construct(self):
         line1 = Text("You can use Manim")
         line2 = Text("to create animations like these")
@@ -82,11 +118,18 @@ parameters that can be passed on, like `font`, `font_size`, `color`, and such.
 ### Displaying Mathematical Equations
 
 Math equations and formulas go hand-in-hand in application with educational animations. However, it is incredibly difficult to read math equations written in 
-normal text! This is where [LaTeX](https://www.latex-project.org/) comes in handy. LaTeX is a typesetting software system widely used in academia. It allows users to produce math equations that look good while still being intuitive. 
+normal text! This is where [LaTeX](https://www.latex-project.org/) comes in handy. LaTeX is a typesetting software system widely used in academia. It allows users to produce math equations that look good while still being intuitive. There are many tutorials on the internet regarding LaTeX if needed, whether
+you are new or need a refresher.
 
 <!---
-your comment goes here
-and here
+comment: add student wiki about LaTeX here!
 -->
 
-test
+After installing a LaTeX distribution like [PyLaTeX](https://pypi.org/project/PyLaTeX/), you will use a `Tex` object rather than a `Text` object.
+
+Now you can create math equations!
+
+```Python
+equation = Text(r"$E(z,t) = \hat{x}cos(2\pi \times 10^{6}t - 7z + \frac{\pi}{2})$")
+```
+
