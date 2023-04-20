@@ -127,9 +127,10 @@ comment: add student wiki about LaTeX here!
 
 After installing a LaTeX distribution like [PyLaTeX](https://pypi.org/project/PyLaTeX/), you will use a `Tex` object rather than a `Text` object.
 
-Now you can create math equations!
+Now you can create math equations and add them to your Manim animations!
 
 ```Python
 equation = Text(r"$E(z,t) = \hat{x}cos(2\pi \times 10^{6}t - 7z + \frac{\pi}{2})$")
 ```
 
+While LaTeX is capable of producing matrices and tables, Manim actually has built-in `Matrix` and `Table` MObjects, but if you prefer to use LaTeX,  `MathTable` is a specialized MObject for use with LaTex.
